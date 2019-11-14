@@ -1,0 +1,49 @@
+
+
+
+<div class="language">
+  <strong title="{$lang_type}">{$lang_supported[$lang_type]}</strong> <button type="button" class="toggle"><img src="./img/buttonLangs.gif" alt="Select Language" width="150" height="28" /></button>
+  <ul class="selectLang">
+    <li loop="$lang_supported=>$key,$val" cond="$key!= $lang_type">
+    <button type="button" onclick="doChangeLangType('{$key}');return false;">{$val}</button></li>
+  </ul>
+</div>
+
+
+
+<li class="new_language_select">
+<a href="javascript:;" title="Language Select">언어선택</a>
+<ul class="depth2">
+<li loop="$lang_supported=>$key,$val" cond="$key!= $lang_type">
+<button type="button" onclick="doChangeLangType('{$key}');return false;">{$val}</button>
+</li>
+</ul>
+</li>
+
+<li class="new_language_select" cond="count($lang_supported)>1">
+<a href="javascript:;" title="{$lang->cmd_set_multilingual}">{$lang->cmd_multilingual}</a>
+<ul class="depth2">
+<li loop="$lang_supported=>$key,$val" cond="$key!= $lang_type">
+<a href="javascript:;" onclick="doChangeLangType('{$key}'); return false;" title="{$val}">{$val}</a>
+</li>
+</ul>
+</li>
+
+// 내가 간략하게 만든것//  <a> 링크에다가 "javascript:" 아무것도 하지 않는다.</a>
+<li class="language_select">
+<a href="javascript:" title=" ">Language</a>
+<ul class="depth2">
+<li loop="$lang_supported=>$key,$val" cond="$key!= $lang_type">
+<a href="javascript:;" onclick="doChangeLangType('{$key}'); return false;">{$val}</a>
+</li>
+</ul>
+</li>
+
+
+
+
+<ul cond="$val2['list']" class="depth3">
+  <li loop="$val2['list'] => $key3, $val3">
+    <a href="{$val3['href']}" target="_blank"|cond="$val3['open_window'] == 'Y'">{$val3['link']}</a>
+  </li>
+</ul>
